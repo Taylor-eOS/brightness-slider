@@ -1,8 +1,15 @@
 import os
+import glob
 import tkinter as tk
 from tkinter import messagebox
 
-BRIGHTNESS_PATH = "/sys/class/backlight/amdgpu_bl1/brightness"
+def get_backlight_path():
+    backlight_dirs = glob.glob("/sys/class/backlight/*")
+    if backlight_dirs:
+        return os.path.join(backlight_dirs[0], "brightness")
+    raise FileNotFoundError("No backlight interface found.")
+
+BRIGHTNESS_PATH = get_backlight_path()
 
 def get_brightness():
     try:
