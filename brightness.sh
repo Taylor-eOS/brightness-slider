@@ -1,4 +1,4 @@
 #!/bin/bash
 cd ~
-/usr/bin/python brightness.py
+/usr/bin/python dv/brightness.py
 exit
