@@ -53,7 +53,7 @@ def show_slider():
         nonlocal close_timer
         if close_timer:
             slider_window.after_cancel(close_timer)
-        close_timer = slider_window.after(3600, check_and_close)
+        close_timer = slider_window.after(500, check_and_close)
 
     def check_and_close():
         nonlocal interaction_occurred
@@ -80,4 +80,3 @@ def show_slider():
 
 if __name__ == "__main__":
     show_slider()
-
